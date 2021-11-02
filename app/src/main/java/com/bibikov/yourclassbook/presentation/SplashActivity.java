@@ -1,8 +1,10 @@
-package com.bibikov.yourclassbook;
+package com.bibikov.yourclassbook.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+
+import com.bibikov.yourclassbook.R;
 
 public class SplashActivity extends AppCompatActivity {
 
