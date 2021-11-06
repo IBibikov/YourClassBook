@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.AddNewGroupActivity"
+    tools:context=".presentation.AddNewStudentActivity"
     android:orientation="vertical"
     android:gravity="center">
     <androidx.appcompat.widget.LinearLayoutCompat
@@ -15,7 +15,7 @@
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="@string/enter_name_group"
+            android:text="@string/enter_fio_student"
             android:textColor="@color/black"
             android:textStyle="normal"
             android:gravity="center"
@@ -29,27 +29,28 @@
         android:paddingStart="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
-            android:id="@+id/textInputLayout"
+            android:id="@+id/first_name_student_layout"
             style="@style/Widget.MaterialComponents.TextInputLayout.OutlinedBox"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            app:boxStrokeColor="@color/black"
+            android:layout_marginTop="40dp"
+            android:hint="@string/fio_student"
             android:textColorHint="@color/black"
-            android:hint="@string/name_group"
-            app:strokeColor="@color/black"
-            app:strokeWidth="10dp"
+            app:boxStrokeColor="@color/black">
 
-            >
             <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/first_name_student"
+                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
-                android:textSize="25sp"
                 android:gravity="center"
-                android:textColorHint="@color/black"
                 android:textColor="@color/black"
-                style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
-                />
+                android:textColorHint="@color/black"
+                android:textSize="25sp" />
         </com.google.android.material.textfield.TextInputLayout>
+
+
+
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dip"

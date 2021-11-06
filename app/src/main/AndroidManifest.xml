@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourClassBook">
         <activity
+            android:name=".presentation.AddNewStudentActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.StudentActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.AddNewGroupActivity"
             android:exported="true" />
         <activity
@@ -17,9 +23,6 @@
             android:exported="true" />
         <activity
             android:name=".presentation.AuthorizationActivity"
-            android:exported="true" />
-        <activity
-            android:name=".presentation.SplashActivity"
             android:exported="true" />
         <activity
             android:name=".presentation.MainActivity"

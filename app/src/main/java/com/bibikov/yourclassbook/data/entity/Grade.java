@@ -7,10 +7,7 @@ import java.util.Date;
 @Entity
 public class Grade {
     @PrimaryKey(autoGenerate = true)
-    int id_grade;
+    int gradeId;
     int grade;
     int studentOwner;
-    Date date;
-
-
 }

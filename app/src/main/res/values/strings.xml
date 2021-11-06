@@ -12,5 +12,12 @@
     <string name="start">Начать</string>
     <string name="cont">Продолжить</string>
     <string name="FIO">Имя Отчество</string>
+    <string name="name_group">Имя Класса</string>
+    <string name="enter_name_group">Введите имя класса</string>
+    <string name="save_group">Сохранить</string>
+    <string name="hint_fot_start">Здравствуйте! Я ваш помощник.</string>
+    <string name="hint_for_subject">Преподаваемый предмет</string>
+    <string name="enter_fio_student">Введите информацию</string>
+    <string name="fio_student">ФИО ученика</string>
 
 </resources>

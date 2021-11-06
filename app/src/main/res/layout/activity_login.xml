@@ -30,11 +30,11 @@
       <TextView
           android:layout_width="match_parent"
           android:layout_height="wrap_content"
-          android:text="Здравствуйте! Я ваш помощник."
+          android:text="@string/hint_fot_start"
           android:textColor="@color/black"
           android:textStyle="normal"
           android:gravity="center"
-          android:textSize="25dp"/>
+          android:textSize="25sp"/>
    </androidx.appcompat.widget.LinearLayoutCompat>
 
    <androidx.appcompat.widget.LinearLayoutCompat

@@ -12,10 +12,7 @@ import com.bibikov.yourclassbook.data.entity.Group;
 import java.util.List;
 
 @Dao
-public interface GroupDao {
-
-    @Query("SELECT * FROM `group`")
-    List<Group> getAllGroup();
+public interface SchoolDao {
 
     @Insert
     void insertGroup(Group... groups);

@@ -1,16 +1,14 @@
 package com.bibikov.yourclassbook.presentation;
 
 import androidx.appcompat.app.AppCompatActivity;
-
+import com.bibikov.yourclassbook.R;
 import android.os.Bundle;
 
-import com.bibikov.yourclassbook.R;
-
-public class SplashActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_splash);
+        setContentView(R.layout.activity_student);
     }
 }
