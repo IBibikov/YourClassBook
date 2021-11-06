@@ -6,7 +6,7 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "teacher")
 public class Teacher {
     @PrimaryKey(autoGenerate = true)
-    int id_teacher;
-    String fio_teacher;
-    String subject;
+    public int teacherId;
+    public String fio_teacher;
+    public String subject;
 }

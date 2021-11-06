@@ -10,6 +10,12 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourClassBook">
         <activity
+            android:name=".presentation.AddNewGroupActivity"
+            android:exported="true" />
+        <activity
+            android:name=".presentation.GroupsActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.AuthorizationActivity"
             android:exported="true" />
         <activity
