@@ -9,8 +9,8 @@ import androidx.room.PrimaryKey;
 public class Group {
 
     @PrimaryKey(autoGenerate = true)
-    int id_group;
-    public String name_group;
+    int groupId;
+    public String nameOfGroup;
     public int teacherOwnerId;
 
 }
