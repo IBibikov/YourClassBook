@@ -1,4 +1,4 @@
-package com.bibikov.yourclassbook.presentation;
+package com.bibikov.yourclassbook.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
 import com.bibikov.yourclassbook.R;

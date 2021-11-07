@@ -10,22 +10,22 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourClassBook">
         <activity
-            android:name=".presentation.AddNewStudentActivity"
+            android:name=".presentation.view.AddNewStudentActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.StudentActivity"
+            android:name=".presentation.view.StudentActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.AddNewGroupActivity"
+            android:name=".presentation.view.AddNewGroupActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.GroupsActivity"
+            android:name=".presentation.view.GroupsActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.AuthorizationActivity"
+            android:name=".presentation.view.AuthorizationActivity"
             android:exported="true" />
         <activity
-            android:name=".presentation.MainActivity"
+            android:name=".presentation.view.MainActivity"
             android:exported="true">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
