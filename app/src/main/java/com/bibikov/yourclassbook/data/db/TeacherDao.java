@@ -1,4 +1,5 @@
 package com.bibikov.yourclassbook.data.db;
+
 import com.bibikov.yourclassbook.data.entity.*;
 
 import androidx.lifecycle.LiveData;
@@ -16,6 +17,9 @@ import java.util.List;
 
 @Dao
 public interface TeacherDao {
+    @Insert
+    void insertTeacher(Teacher teacher);
 
-
+    @Query("DELETE FROM teacher")
+    public void deleteAllTeachers();
 }

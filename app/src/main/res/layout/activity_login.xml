@@ -48,7 +48,7 @@
        android:layout_marginEnd="10dp">
 
       <com.google.android.material.button.MaterialButton
-          android:id="@+id/button_continue"
+          android:id="@+id/button_for_continue"
           style="@style/Widget.MaterialComponents.Button.OutlinedButton"
           android:layout_width="0dp"
           android:layout_height="50dp"

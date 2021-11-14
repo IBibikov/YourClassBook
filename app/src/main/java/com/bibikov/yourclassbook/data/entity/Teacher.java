@@ -11,9 +11,8 @@ public class Teacher {
     public String fio_teacher;
     public String subject;
 
-    @Ignore
-    public Teacher(int teacherId, String fio_teacher, String subject) {
-        this.teacherId = teacherId;
+
+    public Teacher( String fio_teacher, String subject) {
         this.fio_teacher = fio_teacher;
         this.subject = subject;
     }

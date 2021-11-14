@@ -12,7 +12,7 @@ public class Student {
     int isHere;
     String nameOfStudent;
 
-    @Ignore
+
     public Student(int studentId, int groupOwnerID, int isHere, String nameOfStudent) {
         this.studentId = studentId;
         this.groupOwnerID = groupOwnerID;

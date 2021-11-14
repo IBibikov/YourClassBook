@@ -12,7 +12,7 @@ public class Grade {
     int grade;
     int studentOwner;
 
-    @Ignore
+
     public Grade(int gradeId, int grade, int studentOwner) {
         this.gradeId = gradeId;
         this.grade = grade;

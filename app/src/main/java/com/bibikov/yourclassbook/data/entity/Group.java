@@ -14,10 +14,4 @@ public class Group {
     public String nameOfGroup;
     public int teacherOwnerId;
 
-    @Ignore
-    public Group(int groupId, String nameOfGroup, int teacherOwnerId) {
-        this.groupId = groupId;
-        this.nameOfGroup = nameOfGroup;
-        this.teacherOwnerId = teacherOwnerId;
-    }
 }
