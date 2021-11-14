@@ -16,4 +16,8 @@ public class Teacher {
         this.fio_teacher = fio_teacher;
         this.subject = subject;
     }
+
+    public int getTeacherId() {
+        return teacherId;
+    }
 }

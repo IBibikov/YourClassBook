@@ -21,6 +21,7 @@ import java.util.concurrent.Executors;
 public abstract class AppDataBase extends RoomDatabase {
 
     public abstract TeacherDao teacherDao();
+    public abstract GroupDao groupDao();
 
     private static volatile AppDataBase INSTANCE;
     private static final int NUMBER_OF_THREADS = 4;

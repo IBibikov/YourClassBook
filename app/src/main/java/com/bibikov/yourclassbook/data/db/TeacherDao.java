@@ -6,6 +6,7 @@ import androidx.lifecycle.LiveData;
 import androidx.room.Dao;
 import androidx.room.Delete;
 import androidx.room.Ignore;
+import androidx.room.Index;
 import androidx.room.Insert;
 import androidx.room.OnConflictStrategy;
 import androidx.room.Query;
@@ -15,6 +16,8 @@ import com.bibikov.yourclassbook.data.entity.Group;
 
 import java.util.List;
 
+import io.reactivex.Flowable;
+
 @Dao
 public interface TeacherDao {
     @Insert
@@ -22,4 +25,9 @@ public interface TeacherDao {
 
     @Query("DELETE FROM teacher")
     public void deleteAllTeachers();
+
+    @Query("SELECT teacherId FROM teacher")
+    Flowable<List<Integer>> getAllIdOfTeacher();
+
+
 }
