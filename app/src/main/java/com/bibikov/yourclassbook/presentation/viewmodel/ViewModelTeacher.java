@@ -8,6 +8,7 @@ import com.bibikov.yourclassbook.data.entity.Teacher;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
 import java.util.List;
+import java.util.function.Consumer;
 
 import io.reactivex.Flowable;
 
@@ -26,9 +27,14 @@ public class ViewModelTeacher extends AndroidViewModel {
     }
 
     public Flowable<List<Integer>> getIdTeacher(){
-        return mSchoolRepository.getIdTeacher(){
-            
-        }
+        return mSchoolRepository.getIdAllTeacher()
+                .observeOn(AndroidSchedulers.mainThread())
+                .subscribe(new Consumer<List<Integer>>() {
+                    @Override
+                    public void accept(List<Integer> employees) throws Exception {
+
+                    }
+                });
 
     }
 

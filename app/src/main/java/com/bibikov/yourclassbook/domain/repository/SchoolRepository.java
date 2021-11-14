@@ -44,7 +44,7 @@ public class SchoolRepository {
         });
     }
 
-    public Flowable<List<Integer>> getIdTeacher(){
+    public Flowable<List<Integer>> getIdAllTeacher(){
         return mTeacherDao.getAllIdOfTeacher();
     }
 }
