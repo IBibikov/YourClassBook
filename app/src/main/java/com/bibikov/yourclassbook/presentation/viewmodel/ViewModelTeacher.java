@@ -31,7 +31,7 @@ public class ViewModelTeacher extends AndroidViewModel {
                 .observeOn(AndroidSchedulers.mainThread())
                 .subscribe(new Consumer<List<Integer>>() {
                     @Override
-                    public void accept(List<Integer> employees) throws Exception {
+                    public void accept(List<Integer> id) throws Exception {
 
                     }
                 });
