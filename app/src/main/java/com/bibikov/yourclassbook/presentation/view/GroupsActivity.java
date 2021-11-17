@@ -28,30 +28,23 @@ import java.util.List;
 public class GroupsActivity extends AppCompatActivity implements GroupViewHolder.OnGroupListener {
 
     public static final int NEW_GROUP_ACTIVITY_REQUEST_CODE = 1;
-    FloatingActionButton button;
+    FloatingActionButton buttonAddNewGroup;
     private GroupViewModel mGroupViewModel;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_groups);
-        button = findViewById(R.id.button_for_add_new_group);
+        buttonAddNewGroup = findViewById(R.id.button_for_add_new_group);
         RecyclerView recyclerView = findViewById(R.id.recyclerview_for_group);
-        final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff(),this);
+        final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mGroupViewModel = new ViewModelProvider(this).get(GroupViewModel.class);
-        mGroupViewModel.getAllGroups().observe(this,groups -> {
+        mGroupViewModel.getAllGroups().observe(this, groups -> {
             adapter.submitList(groups);
         });
-        FloatingActionButton buttonAddNewGroup = findViewById(R.id.button_for_add_new_group);
-        buttonAddNewGroup.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(GroupsActivity.this, AddNewGroupActivity.class);
-                startActivityForResult(intent, NEW_GROUP_ACTIVITY_REQUEST_CODE);
-            }
-        });
+        addNewGroup(buttonAddNewGroup);
     }
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
@@ -70,10 +63,21 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
         }
     }
 
+    public void addNewGroup(FloatingActionButton button) {
+        button.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent = new Intent(GroupsActivity.this, AddNewGroupActivity.class);
+                startActivityForResult(intent, NEW_GROUP_ACTIVITY_REQUEST_CODE);
+            }
+        });
+    }
+
     @Override
     public void onGroupClick(int position) {
-        Intent intent= new Intent(GroupsActivity.this,StudentActivity.class);
+        Intent intent = new Intent(GroupsActivity.this, StudentActivity.class);
         startActivity(intent);
+
     }
 }
 

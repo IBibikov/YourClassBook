@@ -20,4 +20,6 @@ public interface GroupDao {
 
     @Query("SELECT * FROM `group`")
     LiveData<List<Group>> getAllGroup();
+
+
 }

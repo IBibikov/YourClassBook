@@ -23,7 +23,6 @@ public class GroupViewModel extends AndroidViewModel {
         super(application);
         mSchoolRepository = new SchoolRepository(application);
         mAllGroups = mSchoolRepository.getmAllGroups();
-
     }
 
     public void insertGroup(Group group) {

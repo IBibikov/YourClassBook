@@ -33,7 +33,6 @@ public class GroupViewHolder extends RecyclerView.ViewHolder implements View.OnC
 
     public interface OnGroupListener{
         void onGroupClick(int position);
-
     }
 
 }

@@ -9,14 +9,11 @@ public class Student {
     @PrimaryKey(autoGenerate = true)
     int studentId;
     int groupOwnerID;
-    int isHere;
     String nameOfStudent;
 
 
-    public Student(int studentId, int groupOwnerID, int isHere, String nameOfStudent) {
-        this.studentId = studentId;
+    public Student(int groupOwnerID, String nameOfStudent) {
         this.groupOwnerID = groupOwnerID;
-        this.isHere = isHere;
         this.nameOfStudent = nameOfStudent;
     }
 }

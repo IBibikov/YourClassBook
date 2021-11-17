@@ -6,8 +6,10 @@ import androidx.lifecycle.LiveData;
 
 import com.bibikov.yourclassbook.data.db.AppDataBase;
 import com.bibikov.yourclassbook.data.db.GroupDao;
+import com.bibikov.yourclassbook.data.db.StudentDao;
 import com.bibikov.yourclassbook.data.db.TeacherDao;
 import com.bibikov.yourclassbook.data.entity.Group;
+import com.bibikov.yourclassbook.data.entity.Student;
 import com.bibikov.yourclassbook.data.entity.Teacher;
 
 import java.util.ArrayList;
@@ -20,13 +22,15 @@ public class SchoolRepository {
 
     private TeacherDao mTeacherDao;
     private GroupDao mGroupDao;
+    private StudentDao mSrudentDao;
     private LiveData<List<Group>> mAllGroups;
 
     public SchoolRepository(Context context) {
         AppDataBase db = AppDataBase.getInstance(context);
         mTeacherDao = db.teacherDao();
         mGroupDao = db.groupDao();
-        mAllGroups= mGroupDao.getAllGroup();
+        mSrudentDao = db.studentDao();
+        mAllGroups = mGroupDao.getAllGroup();
     }
 
     public void insert(Teacher teacher) {
@@ -41,8 +45,8 @@ public class SchoolRepository {
         });
     }
 
-    public void deleteAllGroup(){
-        AppDataBase.databaseWriteExecutor.execute(()->{
+    public void deleteAllGroup() {
+        AppDataBase.databaseWriteExecutor.execute(() -> {
             mGroupDao.deleteAllGroups();
         });
     }
@@ -53,12 +57,19 @@ public class SchoolRepository {
         });
     }
 
-    public List<Integer>getIdAllTeacher(){
-        return  mTeacherDao.getAllIdOfTeacher();
+    public void insertStudent(Student student) {
+        AppDataBase.databaseWriteExecutor.execute(() -> {
+            mSrudentDao.insertStudent(student);
+        });
     }
 
-   public LiveData<List<Group>> getmAllGroups(){
+    public List<Integer> getIdAllTeacher() {
+        return mTeacherDao.getAllIdOfTeacher();
+    }
+
+    public LiveData<List<Group>> getmAllGroups() {
         return mAllGroups;
     }
+
 
 }
