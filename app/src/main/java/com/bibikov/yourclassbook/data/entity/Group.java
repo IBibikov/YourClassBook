@@ -10,7 +10,7 @@ import androidx.room.PrimaryKey;
 public class Group {
 
     @PrimaryKey(autoGenerate = true)
-     public int groupId;
+    public int groupId;
     public String nameOfGroup;
     public int teacherOwnerId;
 

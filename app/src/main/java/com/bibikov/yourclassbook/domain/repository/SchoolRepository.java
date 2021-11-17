@@ -10,9 +10,11 @@ import com.bibikov.yourclassbook.data.db.TeacherDao;
 import com.bibikov.yourclassbook.data.entity.Group;
 import com.bibikov.yourclassbook.data.entity.Teacher;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import io.reactivex.Flowable;
+import io.reactivex.Scheduler;
 
 public class SchoolRepository {
 
@@ -38,13 +40,19 @@ public class SchoolRepository {
         });
     }
 
+    public void deleteAllGroup(){
+        AppDataBase.databaseWriteExecutor.execute(()->{
+            mGroupDao.deleteAllGroups();
+        });
+    }
+
     public void insertGroup(Group group) {
         AppDataBase.databaseWriteExecutor.execute(() -> {
             mGroupDao.insertGroup(group);
         });
     }
 
-    public Flowable<List<Integer>> getIdAllTeacher(){
-        return mTeacherDao.getAllIdOfTeacher();
+    public List<Integer>getIdAllTeacher(){
+        return  mTeacherDao.getAllIdOfTeacher();
     }
 }

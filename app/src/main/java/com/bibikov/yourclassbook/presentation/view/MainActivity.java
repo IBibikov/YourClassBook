@@ -17,7 +17,9 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
         buttonStart= findViewById(R.id.button_start);
+        buttonContinue=findViewById(R.id.button_for_continue);
         startForNewTeacher(buttonStart);
+        continueForOldTeacher(buttonContinue);
     }
 
 
@@ -29,5 +31,15 @@ public class MainActivity extends AppCompatActivity {
                 startActivity(intent);
             }
         });
+    }
+    public void continueForOldTeacher(View view){
+        buttonContinue.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Intent intent= new Intent(MainActivity.this,GroupsActivity.class);
+                startActivity(intent);
+            }
+        });
+
     }
 }

@@ -16,7 +16,7 @@ import java.util.List;
 public class GroupViewModel extends AndroidViewModel {
 
     public SchoolRepository mSchoolRepository;
-    public List<Integer> allIdOfTeacher = new ArrayList<>();
+
     public GroupViewModel(@NonNull Application application) {
         super(application);
         mSchoolRepository =new SchoolRepository(application);
@@ -26,5 +26,11 @@ public class GroupViewModel extends AndroidViewModel {
         mSchoolRepository.insertGroup(group);
     }
 
+    public List<Integer>getIdOfTeacher(){
+        return mSchoolRepository.getIdAllTeacher();
+    }
 
+    public void deleteAllGroups(){
+        mSchoolRepository.deleteAllGroup();
+    }
 }

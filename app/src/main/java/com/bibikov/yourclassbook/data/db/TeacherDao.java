@@ -27,7 +27,7 @@ public interface TeacherDao {
     public void deleteAllTeachers();
 
     @Query("SELECT teacherId FROM teacher")
-    Flowable<List<Integer>> getAllIdOfTeacher();
+    List<Integer> getAllIdOfTeacher();
 
 
 }

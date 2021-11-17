@@ -30,7 +30,7 @@ public class AuthorizationActivity extends AppCompatActivity {
 
     }
 
-   public void insertTeacher(ViewModelTeacher viewModelTeacher ) {
+    public void insertTeacher(ViewModelTeacher viewModelTeacher) {
         TextInputEditText nameOfTeacher = findViewById(R.id.name_of_teacher);
         TextInputEditText subjectOfTeacher = findViewById(R.id.subject_of_teacher);
         Button buttonForContinue = findViewById(R.id.button_continue);

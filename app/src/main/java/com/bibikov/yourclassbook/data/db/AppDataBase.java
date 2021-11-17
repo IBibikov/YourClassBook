@@ -16,7 +16,7 @@ import com.bibikov.yourclassbook.data.entity.Teacher;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
-@Database(entities = {Group.class, Grade.class, Student.class, Teacher.class}, version = 1)
+@Database(entities = {Group.class, Grade.class, Student.class, Teacher.class}, version =1)
 
 public abstract class AppDataBase extends RoomDatabase {
 
@@ -34,6 +34,7 @@ public abstract class AppDataBase extends RoomDatabase {
                 if (INSTANCE == null) {
                     INSTANCE = Room.databaseBuilder(context.getApplicationContext(),
                             AppDataBase.class, "Sample.db")
+                            .allowMainThreadQueries()
                             .build();
                 }
             }

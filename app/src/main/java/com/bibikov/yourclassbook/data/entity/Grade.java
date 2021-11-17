@@ -5,7 +5,7 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 import java.util.Date;
 
-@Entity
+@Entity(tableName = "grade")
 public class Grade {
     @PrimaryKey(autoGenerate = true)
     int gradeId;

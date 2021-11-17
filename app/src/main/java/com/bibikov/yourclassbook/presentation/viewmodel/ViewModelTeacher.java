@@ -16,7 +16,7 @@ public class ViewModelTeacher extends AndroidViewModel {
 
 
     public SchoolRepository mSchoolRepository;
-    List<Integer> allIdOfTeacher;
+
     public ViewModelTeacher(Application application) {
         super(application);
         mSchoolRepository = new SchoolRepository(application);
@@ -26,16 +26,8 @@ public class ViewModelTeacher extends AndroidViewModel {
         mSchoolRepository.insert(teacher);
     }
 
-    public Flowable<List<Integer>> getIdTeacher(){
-        return mSchoolRepository.getIdAllTeacher()
-                .observeOn(AndroidSchedulers.mainThread())
-                .subscribe(new Consumer<List<Integer>>() {
-                    @Override
-                    public void accept(List<Integer> id) throws Exception {
-
-                    }
-                });
-
+    public void deleteAllTeachers(){
+        mSchoolRepository.deleteAllTeacher();
     }
 
 }
