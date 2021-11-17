@@ -18,4 +18,8 @@ public class Group {
         this.nameOfGroup = nameOfGroup;
         this.teacherOwnerId = teacherOwnerId;
     }
+
+    public String getNameOfGroup() {
+        return nameOfGroup;
+    }
 }

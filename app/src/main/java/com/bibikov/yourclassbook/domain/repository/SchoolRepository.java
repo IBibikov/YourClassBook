@@ -20,12 +20,13 @@ public class SchoolRepository {
 
     private TeacherDao mTeacherDao;
     private GroupDao mGroupDao;
-
+    private LiveData<List<Group>> mAllGroups;
 
     public SchoolRepository(Context context) {
         AppDataBase db = AppDataBase.getInstance(context);
         mTeacherDao = db.teacherDao();
         mGroupDao = db.groupDao();
+        mAllGroups= mGroupDao.getAllGroup();
     }
 
     public void insert(Teacher teacher) {
@@ -55,4 +56,9 @@ public class SchoolRepository {
     public List<Integer>getIdAllTeacher(){
         return  mTeacherDao.getAllIdOfTeacher();
     }
+
+   public LiveData<List<Group>> getmAllGroups(){
+        return mAllGroups;
+    }
+
 }
