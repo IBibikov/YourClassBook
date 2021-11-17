@@ -1,5 +1,7 @@
 package com.bibikov.yourclassbook.presentation.view;
 
+import static android.content.ContentValues.TAG;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -7,6 +9,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.widget.Button;
 import android.widget.Toast;
@@ -15,13 +18,14 @@ import com.bibikov.yourclassbook.R;
 import com.bibikov.yourclassbook.data.entity.Group;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 import com.bibikov.yourclassbook.presentation.adapters.groupadapter.GroupAdapter;
+import com.bibikov.yourclassbook.presentation.adapters.groupadapter.GroupViewHolder;
 import com.bibikov.yourclassbook.presentation.viewmodel.GroupViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class GroupsActivity extends AppCompatActivity {
+public class GroupsActivity extends AppCompatActivity implements GroupViewHolder.OnGroupListener {
 
     public static final int NEW_GROUP_ACTIVITY_REQUEST_CODE = 1;
     FloatingActionButton button;
@@ -33,11 +37,11 @@ public class GroupsActivity extends AppCompatActivity {
         setContentView(R.layout.activity_groups);
         button = findViewById(R.id.button_for_add_new_group);
         RecyclerView recyclerView = findViewById(R.id.recyclerview_for_group);
-        final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff());
+        final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff(),this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         mGroupViewModel = new ViewModelProvider(this).get(GroupViewModel.class);
-        mGroupViewModel.getAllGroups().observe(this, groups -> {
+        mGroupViewModel.getAllGroups().observe(this,groups -> {
             adapter.submitList(groups);
         });
         FloatingActionButton buttonAddNewGroup = findViewById(R.id.button_for_add_new_group);
@@ -64,6 +68,12 @@ public class GroupsActivity extends AppCompatActivity {
                     "Класс не добавлен",
                     Toast.LENGTH_LONG).show();
         }
+    }
+
+    @Override
+    public void onGroupClick(int position) {
+        Intent intent= new Intent(GroupsActivity.this,StudentActivity.class);
+        startActivity(intent);
     }
 }
 

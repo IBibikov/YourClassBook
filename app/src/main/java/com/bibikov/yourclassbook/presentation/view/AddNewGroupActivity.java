@@ -43,19 +43,5 @@ public class AddNewGroupActivity extends AppCompatActivity {
 
 
     }
-//    public void addNewGroup(GroupViewModel groupViewModel){
-//        buttonSaveNewGroup= findViewById(R.id.button_save_new_group);
-//        nameOfgroup=findViewById(R.id.name_of_group);
-//        List<Integer> idTeacher = groupViewModel.getIdOfTeacher();
-//        buttonSaveNewGroup.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                String nameOfGroup=nameOfgroup.getText().toString();
-//                int idForRelation= idTeacher.get(0);
-//                Group group= new Group(nameOfGroup,idForRelation);
-//                groupViewModel.insertGroup(group);
-//
-//            }
-//        });
-//    }
+
 }

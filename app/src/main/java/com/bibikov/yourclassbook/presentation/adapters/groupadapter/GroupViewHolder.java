@@ -10,21 +10,30 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.bibikov.yourclassbook.R;
 
-public class GroupViewHolder extends RecyclerView.ViewHolder {
+public class GroupViewHolder extends RecyclerView.ViewHolder implements View.OnClickListener {
 
     private TextView groupItemView;
+    OnGroupListener onGroupListener;
 
-    public GroupViewHolder(@NonNull View itemView) {
+    public GroupViewHolder(@NonNull View itemView,OnGroupListener onGroupListener) {
         super(itemView);
         groupItemView = itemView.findViewById(R.id.item_group);
+        this.onGroupListener=onGroupListener;
+        itemView.setOnClickListener(this);
     }
     public void bind(String text){
         groupItemView.setText(text);
     }
-    static GroupViewHolder create(ViewGroup parent) {
-        View view = LayoutInflater.from(parent.getContext())
-                .inflate(R.layout.group_item, parent, false);
-        return new GroupViewHolder(view);
+
+
+    @Override
+    public void onClick(View view) {
+        onGroupListener.onGroupClick(getAdapterPosition());
+    }
+
+    public interface OnGroupListener{
+        void onGroupClick(int position);
+
     }
 
 }

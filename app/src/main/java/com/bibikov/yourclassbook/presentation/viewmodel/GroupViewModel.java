@@ -18,25 +18,28 @@ public class GroupViewModel extends AndroidViewModel {
 
     public SchoolRepository mSchoolRepository;
     private final LiveData<List<Group>> mAllGroups;
+
     public GroupViewModel(@NonNull Application application) {
         super(application);
-        mSchoolRepository =new SchoolRepository(application);
-        mAllGroups=mSchoolRepository.getmAllGroups();
+        mSchoolRepository = new SchoolRepository(application);
+        mAllGroups = mSchoolRepository.getmAllGroups();
 
     }
-    public void insertGroup(Group group){
+
+    public void insertGroup(Group group) {
         mSchoolRepository.insertGroup(group);
     }
 
-    public List<Integer>getIdOfTeacher(){
+    public List<Integer> getIdOfTeacher() {
         return mSchoolRepository.getIdAllTeacher();
     }
 
-    public void deleteAllGroups(){
+    public void deleteAllGroups() {
         mSchoolRepository.deleteAllGroup();
     }
 
-    public LiveData<List<Group>> getAllGroups(){
+    public LiveData<List<Group>> getAllGroups() {
         return mAllGroups;
     }
+
 }

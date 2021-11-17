@@ -47,6 +47,7 @@
        android:textColorHint="@color/black"
        android:textColor="@color/black"
        android:gravity="center"
+       android:singleLine="true"
        style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
        />
 
@@ -72,6 +73,7 @@
           android:gravity="center"
           android:textColorHint="@color/black"
           android:textColor="@color/black"
+          android:singleLine="true"
           style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
           />
 
