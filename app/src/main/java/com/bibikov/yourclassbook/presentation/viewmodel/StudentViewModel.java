@@ -15,16 +15,19 @@ import java.util.List;
 public class StudentViewModel extends AndroidViewModel {
 
 
-    private LiveData<List<Group>> mAllGroups;
-
+    private LiveData<List<Student>> mAllStudentsByGroup;
     public SchoolRepository mSchoolRepository;
+
     public StudentViewModel(@NonNull Application application) {
         super(application);
         mSchoolRepository=new SchoolRepository(application);
-        mAllGroups=mSchoolRepository.getmAllGroups();
     }
-    public void insertStudent(int idOfGroup){
-        mSchoolRepository.insertStudent(new Student(idOfGroup,"Nikita"));
+    public void insertStudent(Student student){
+        mSchoolRepository.insertStudent(student);
+    }
+    public LiveData<List<Student>> getStudent(int id){
+        mAllStudentsByGroup=mSchoolRepository.getStudents(id);
+        return mAllStudentsByGroup;
     }
 
 }

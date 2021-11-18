@@ -12,24 +12,20 @@ import com.bibikov.yourclassbook.data.entity.Group;
 import com.bibikov.yourclassbook.data.entity.Student;
 import com.bibikov.yourclassbook.data.entity.Teacher;
 
-import java.util.ArrayList;
 import java.util.List;
-
-import io.reactivex.Flowable;
-import io.reactivex.Scheduler;
 
 public class SchoolRepository {
 
     private TeacherDao mTeacherDao;
     private GroupDao mGroupDao;
-    private StudentDao mSrudentDao;
+    private StudentDao mStudentDao;
     private LiveData<List<Group>> mAllGroups;
 
     public SchoolRepository(Context context) {
         AppDataBase db = AppDataBase.getInstance(context);
         mTeacherDao = db.teacherDao();
         mGroupDao = db.groupDao();
-        mSrudentDao = db.studentDao();
+        mStudentDao = db.studentDao();
         mAllGroups = mGroupDao.getAllGroup();
     }
 
@@ -59,7 +55,7 @@ public class SchoolRepository {
 
     public void insertStudent(Student student) {
         AppDataBase.databaseWriteExecutor.execute(() -> {
-            mSrudentDao.insertStudent(student);
+            mStudentDao.insertStudent(student);
         });
     }
 
@@ -69,6 +65,10 @@ public class SchoolRepository {
 
     public LiveData<List<Group>> getmAllGroups() {
         return mAllGroups;
+    }
+
+    public LiveData<List<Student>> getStudents(int id){
+        return mStudentDao.getStudensByIdOwner(id);
     }
 
 

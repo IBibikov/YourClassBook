@@ -16,4 +16,12 @@ public class Student {
         this.groupOwnerID = groupOwnerID;
         this.nameOfStudent = nameOfStudent;
     }
+
+    public int getGroupOwnerID() {
+        return groupOwnerID;
+    }
+
+    public String getNameOfStudent() {
+        return nameOfStudent;
+    }
 }
