@@ -17,7 +17,7 @@ import java.util.List;
 public class GroupViewModel extends AndroidViewModel {
 
     public SchoolRepository mSchoolRepository;
-    private final LiveData<List<Group>> mAllGroups;
+    private LiveData<List<Group>> mAllGroups;
 
     public GroupViewModel(@NonNull Application application) {
         super(application);
@@ -41,4 +41,7 @@ public class GroupViewModel extends AndroidViewModel {
         return mAllGroups;
     }
 
+    public int idOfGroup(int position){
+       return mAllGroups.getValue().get(position).getGroupId();
+    }
 }

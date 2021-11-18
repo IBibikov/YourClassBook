@@ -7,9 +7,9 @@ import androidx.room.PrimaryKey;
 @Entity(tableName = "student")
 public class Student {
     @PrimaryKey(autoGenerate = true)
-    int studentId;
-    int groupOwnerID;
-    String nameOfStudent;
+    public int studentId;
+    public int groupOwnerID;
+    public String nameOfStudent;
 
 
     public Student(int groupOwnerID, String nameOfStudent) {

@@ -75,7 +75,9 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
 
     @Override
     public void onGroupClick(int position) {
+        int idOfgroupForRelation=mGroupViewModel.idOfGroup(position);
         Intent intent = new Intent(GroupsActivity.this, StudentActivity.class);
+        intent.putExtra("idGroupOwner",idOfgroupForRelation);
         startActivity(intent);
 
     }
