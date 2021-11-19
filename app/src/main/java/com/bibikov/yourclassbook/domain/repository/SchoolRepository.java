@@ -29,11 +29,11 @@ public class SchoolRepository {
         mTeacherDao = db.teacherDao();
         mGroupDao = db.groupDao();
         mStudentDao = db.studentDao();
-        mGradeDao=db.gradeDao();
+        mGradeDao = db.gradeDao();
         mAllGroups = mGroupDao.getAllGroup();
     }
 
-    public void insert(Teacher teacher) {
+    public void insertTeacher(Teacher teacher) {
         AppDataBase.databaseWriteExecutor.execute(() -> {
             mTeacherDao.insertTeacher(teacher);
         });
@@ -71,17 +71,20 @@ public class SchoolRepository {
         return mAllGroups;
     }
 
-    public LiveData<List<Student>> getStudents(int idGroup){
+    public LiveData<List<Student>> getStudents(int idGroup) {
         return mStudentDao.getStudensByIdOwner(idGroup);
     }
 
-    public LiveData<List<Grade>> getAllGrade(int idStudent){
+    public LiveData<List<Grade>> getAllGrade(int idStudent) {
         return mGradeDao.getGradeByIdOwner(idStudent);
     }
-    public void insertGrade(Grade grade){
+
+    public void insertGrade(Grade grade) {
         AppDataBase.databaseWriteExecutor.execute(() -> {
             mGradeDao.insertGrade(grade);
         });
     }
-
+    public List<Student> getStudentSecn(int idGroup) {
+        return mStudentDao.getStudentSync(idGroup);
+    }
 }

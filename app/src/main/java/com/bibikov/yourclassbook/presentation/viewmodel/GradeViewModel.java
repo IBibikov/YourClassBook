@@ -25,4 +25,8 @@ public class GradeViewModel extends AndroidViewModel {
     public void insertGrade(Grade grade){
         mSchoolRepository.insertGrade(grade);
     }
+
+    public LiveData<List<Grade>> getGrade(int idOwner){
+        return mAllGradesByStudent=mSchoolRepository.getAllGrade(idOwner);
+    }
 }

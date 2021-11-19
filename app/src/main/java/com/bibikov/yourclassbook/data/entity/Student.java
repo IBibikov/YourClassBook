@@ -24,4 +24,8 @@ public class Student {
     public String getNameOfStudent() {
         return nameOfStudent;
     }
+
+    public int getStudentId() {
+        return studentId;
+    }
 }

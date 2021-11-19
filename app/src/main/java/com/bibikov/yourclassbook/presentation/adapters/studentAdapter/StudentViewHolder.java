@@ -15,7 +15,7 @@ public class StudentViewHolder extends RecyclerView.ViewHolder implements View.O
 
     public StudentViewHolder(@NonNull View itemView,OnStudentListener onStudentListener) {
         super(itemView);
-        studentItemView = itemView.findViewById(R.id.item_group);
+        studentItemView = itemView.findViewById(R.id.item_student);
         this.onStudentListener=onStudentListener;
         itemView.setOnClickListener(this);
     }
