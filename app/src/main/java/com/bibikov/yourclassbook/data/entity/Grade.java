@@ -13,9 +13,16 @@ public class Grade {
     int studentOwner;
 
 
-    public Grade(int gradeId, int grade, int studentOwner) {
-        this.gradeId = gradeId;
+    public Grade( int grade, int studentOwner) {
         this.grade = grade;
         this.studentOwner = studentOwner;
+    }
+
+    public int getGrade() {
+        return grade;
+    }
+
+    public int getStudentOwner() {
+        return studentOwner;
     }
 }
