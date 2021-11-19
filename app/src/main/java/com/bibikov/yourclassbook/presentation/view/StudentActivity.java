@@ -10,6 +10,7 @@ import com.bibikov.yourclassbook.data.entity.Group;
 import com.bibikov.yourclassbook.data.entity.Student;
 import com.bibikov.yourclassbook.presentation.adapters.groupadapter.GroupAdapter;
 import com.bibikov.yourclassbook.presentation.adapters.studentAdapter.StudentAdapter;
+import com.bibikov.yourclassbook.presentation.adapters.studentAdapter.StudentViewHolder;
 import com.bibikov.yourclassbook.presentation.viewmodel.GroupViewModel;
 import com.bibikov.yourclassbook.presentation.viewmodel.StudentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
@@ -21,7 +22,7 @@ import android.widget.Toast;
 
 import java.util.List;
 
-public class StudentActivity extends AppCompatActivity {
+public class StudentActivity extends AppCompatActivity implements StudentViewHolder.OnStudentListener {
     FloatingActionButton buttonAddNewStudent;
     StudentViewModel mStudentViewModel;
     public static final int NEW_STUDENT_ACTIVITY_REQUEST_CODE= 2;
@@ -33,7 +34,7 @@ public class StudentActivity extends AppCompatActivity {
         buttonAddNewStudent=findViewById(R.id.button_for_add_new_student);
         mStudentViewModel = new ViewModelProvider(this).get(StudentViewModel.class);
         RecyclerView recyclerView = findViewById(R.id.recyclerview_for_student);
-        final StudentAdapter studentAdapter= new StudentAdapter(new StudentAdapter.StudentDiff());
+        final StudentAdapter studentAdapter= new StudentAdapter(new StudentAdapter.StudentDiff(),this);
         recyclerView.setAdapter(studentAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         Bundle arguments = getIntent().getExtras();
@@ -68,4 +69,10 @@ public class StudentActivity extends AppCompatActivity {
         });
     }
 
+    @Override
+    public void onStudentClick(int position) {
+        Intent intent = new Intent(StudentActivity.this, ProfileActivity.class);
+        startActivity(intent);
+
+    }
 }

@@ -20,13 +20,15 @@ public class StudentViewModel extends AndroidViewModel {
 
     public StudentViewModel(@NonNull Application application) {
         super(application);
-        mSchoolRepository=new SchoolRepository(application);
+        mSchoolRepository = new SchoolRepository(application);
     }
-    public void insertStudent(Student student){
+
+    public void insertStudent(Student student) {
         mSchoolRepository.insertStudent(student);
     }
-    public LiveData<List<Student>> getStudent(int id){
-        mAllStudentsByGroup=mSchoolRepository.getStudents(id);
+
+    public LiveData<List<Student>> getStudent(int id) {
+        mAllStudentsByGroup = mSchoolRepository.getStudents(id);
         return mAllStudentsByGroup;
     }
 

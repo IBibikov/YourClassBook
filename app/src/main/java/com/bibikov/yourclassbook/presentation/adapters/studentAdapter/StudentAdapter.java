@@ -15,14 +15,16 @@ import com.bibikov.yourclassbook.presentation.adapters.groupadapter.GroupViewHol
 
 public class StudentAdapter extends ListAdapter<Student,StudentViewHolder> {
 
-    public StudentAdapter(@NonNull DiffUtil.ItemCallback<Student> diffCallback) {
+    private StudentViewHolder.OnStudentListener mOnStudentListener;
+    public StudentAdapter(@NonNull DiffUtil.ItemCallback<Student> diffCallback, StudentViewHolder.OnStudentListener onStudentListener) {
         super(diffCallback);
+        this.mOnStudentListener=onStudentListener;
     }
     @NonNull
     @Override
     public StudentViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(parent.getContext()).inflate(R.layout.student_item, parent, false);
-        return new StudentViewHolder(view);
+        return new StudentViewHolder(view,mOnStudentListener);
     }
 
     @Override

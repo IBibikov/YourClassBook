@@ -10,6 +10,9 @@
         android:supportsRtl="true"
         android:theme="@style/Theme.YourClassBook">
         <activity
+            android:name=".presentation.view.ProfileActivity"
+            android:exported="true" />
+        <activity
             android:name=".presentation.view.AddNewStudentActivity"
             android:exported="true" />
         <activity
