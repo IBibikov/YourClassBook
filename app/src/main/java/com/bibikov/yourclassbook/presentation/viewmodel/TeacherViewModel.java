@@ -7,12 +7,12 @@ import androidx.lifecycle.AndroidViewModel;
 import com.bibikov.yourclassbook.data.entity.Teacher;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
-public class ViewModelTeacher extends AndroidViewModel {
+public class TeacherViewModel extends AndroidViewModel {
 
 
     public SchoolRepository mSchoolRepository;
 
-    public ViewModelTeacher(Application application) {
+    public TeacherViewModel(Application application) {
         super(application);
         mSchoolRepository = new SchoolRepository(application);
     }

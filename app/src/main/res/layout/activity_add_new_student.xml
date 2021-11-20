@@ -1,32 +1,35 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
-    tools:context=".presentation.view.AddNewStudentActivity"
+    android:gravity="center"
     android:orientation="vertical"
-    android:gravity="center">
+    tools:context=".presentation.view.AddNewStudentActivity">
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="100dp"
-        android:gravity="center"
-        android:layout_marginBottom="40dp">
+        android:layout_marginBottom="40dp"
+        android:gravity="center">
+
         <TextView
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:gravity="center"
             android:text="@string/enter_fio_student"
             android:textColor="@color/black"
-            android:textStyle="normal"
-            android:gravity="center"
-            android:textSize="30sp"/>
+            android:textSize="30sp"
+            android:textStyle="normal" />
     </androidx.appcompat.widget.LinearLayoutCompat>
+
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
         android:layout_height="400dp"
-        android:paddingEnd="20dp"
         android:orientation="vertical"
-        android:paddingStart="20dp">
+        android:paddingStart="20dp"
+        android:paddingEnd="20dp">
 
         <com.google.android.material.textfield.TextInputLayout
             android:id="@+id/first_name_student_layout"
@@ -44,34 +47,33 @@
                 android:layout_width="match_parent"
                 android:layout_height="70dp"
                 android:gravity="center"
+                android:singleLine="true"
                 android:textColor="@color/black"
                 android:textColorHint="@color/black"
                 android:textSize="25sp" />
         </com.google.android.material.textfield.TextInputLayout>
 
-
-
         <androidx.appcompat.widget.LinearLayoutCompat
             android:layout_width="match_parent"
             android:layout_height="0dip"
+            android:layout_marginStart="20dp"
+            android:layout_marginEnd="10dp"
             android:layout_weight="1"
             android:gravity="center|bottom"
-            android:orientation="horizontal"
-            android:layout_marginStart="20dp"
-            android:layout_marginEnd="10dp">
+            android:orientation="horizontal">
 
             <com.google.android.material.button.MaterialButton
                 android:id="@+id/button_save_new_student"
                 style="@style/Widget.MaterialComponents.Button.OutlinedButton"
                 android:layout_width="0dp"
                 android:layout_height="50dp"
-                android:text="@string/save_group"
-                android:shape="rectangle"
                 android:layout_marginStart="10dp"
+                android:layout_weight="1"
+                android:shape="rectangle"
+                android:text="@string/save_group"
                 android:textColor="@color/black"
                 app:strokeColor="@color/black"
-                app:strokeWidth="2dp"
-                android:layout_weight="1"/>
+                app:strokeWidth="2dp" />
 
         </androidx.appcompat.widget.LinearLayoutCompat>
     </androidx.appcompat.widget.LinearLayoutCompat>

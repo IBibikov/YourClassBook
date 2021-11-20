@@ -9,7 +9,7 @@
 
     <androidx.appcompat.widget.LinearLayoutCompat
         android:layout_width="match_parent"
-        android:layout_height="50dp"
+        android:layout_height="wrap_content"
         android:gravity="center">
         <TextView
             android:id="@+id/your_groups"
@@ -19,7 +19,7 @@
             android:text="Ваши классы :"
             android:textStyle="normal"
             android:gravity="center"
-            android:textSize="30sp"/>
+            android:textSize="40sp"/>
     </androidx.appcompat.widget.LinearLayoutCompat>
 
 <RelativeLayout

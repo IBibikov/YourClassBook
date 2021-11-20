@@ -87,4 +87,8 @@ public class SchoolRepository {
     public List<Student> getStudentSecn(int idGroup) {
         return mStudentDao.getStudentSync(idGroup);
     }
+
+    public LiveData<List<Teacher>> getTeacher(){
+        return mTeacherDao.getAllTeachers();
+    }
 }
