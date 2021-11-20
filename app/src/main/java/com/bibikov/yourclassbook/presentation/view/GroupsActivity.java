@@ -40,6 +40,21 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
         final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && buttonAddNewGroup.isShown()) {
+                    buttonAddNewGroup.hide();
+                }
+            }
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    buttonAddNewGroup.show();
+                }
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
         mGroupViewModel = new ViewModelProvider(this).get(GroupViewModel.class);
         mGroupViewModel.getAllGroups().observe(this, groups -> {
             adapter.submitList(groups);
@@ -75,9 +90,9 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
 
     @Override
     public void onGroupClick(int position) {
-        int idOfgroupForRelation=mGroupViewModel.idOfGroup(position);
+        int idOfgroupForRelation = mGroupViewModel.idOfGroup(position);
         Intent intent = new Intent(GroupsActivity.this, StudentActivity.class);
-        intent.putExtra("idGroupOwner",idOfgroupForRelation);
+        intent.putExtra("idGroupOwner", idOfgroupForRelation);
         startActivity(intent);
 
     }

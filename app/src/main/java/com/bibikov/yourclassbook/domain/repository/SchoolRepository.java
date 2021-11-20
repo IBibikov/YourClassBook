@@ -91,4 +91,8 @@ public class SchoolRepository {
     public LiveData<List<Teacher>> getTeacher(){
         return mTeacherDao.getAllTeachers();
     }
+
+    public List<Grade> getGrade(int idStudent){
+        return mGradeDao.getGrade(idStudent);
+    }
 }

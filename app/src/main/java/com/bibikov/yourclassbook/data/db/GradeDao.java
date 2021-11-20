@@ -16,4 +16,7 @@ public interface GradeDao {
 
     @Query("SELECT * FROM grade WHERE  studentOwner=:idStudentOwner")
     LiveData<List<Grade>> getGradeByIdOwner(int idStudentOwner);
+
+    @Query("SELECT * FROM grade WHERE  studentOwner=:idStudent")
+    List<Grade> getGrade (int idStudent);
 }

@@ -38,6 +38,21 @@ public class StudentActivity extends AppCompatActivity implements StudentViewHol
         final StudentAdapter studentAdapter = new StudentAdapter(new StudentAdapter.StudentDiff(), this);
         recyclerView.setAdapter(studentAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && buttonAddNewStudent.isShown()) {
+                    buttonAddNewStudent.hide();
+                }
+            }
+            @Override
+            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    buttonAddNewStudent.show();
+                }
+                super.onScrollStateChanged(recyclerView, newState);
+            }
+        });
         Bundle arguments = getIntent().getExtras();
         idGroup = arguments.getInt("idGroupOwner");
         mStudentViewModel.getStudent(idGroup).observe(this, students -> {
