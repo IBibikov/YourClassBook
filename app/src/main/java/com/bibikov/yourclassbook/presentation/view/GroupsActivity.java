@@ -40,22 +40,8 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
         final GroupAdapter adapter = new GroupAdapter(new GroupAdapter.GroupDiff(), this);
         recyclerView.setAdapter(adapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0 || dy < 0 && buttonAddNewGroup.isShown()) {
-                    buttonAddNewGroup.hide();
-                }
-            }
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    buttonAddNewGroup.show();
-                }
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
         mGroupViewModel = new ViewModelProvider(this).get(GroupViewModel.class);
+        initFloatingButton(recyclerView, buttonAddNewGroup);
         mGroupViewModel.getAllGroups().observe(this, groups -> {
             adapter.submitList(groups);
         });
@@ -96,5 +82,25 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
         startActivity(intent);
 
     }
+
+    public void initFloatingButton(RecyclerView mRecyclerView, FloatingActionButton mButton) {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView mRecyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && mButton.isShown()) {
+                    mButton.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView mRecyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    mButton.show();
+                }
+                super.onScrollStateChanged(mRecyclerView, newState);
+            }
+        });
+    }
+
 }
 

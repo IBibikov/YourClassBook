@@ -36,47 +36,32 @@ public class ProfileActivity extends AppCompatActivity {
         setContentView(R.layout.activity_profile);
         buttonAddNewGrade = findViewById(R.id.add_new_grade);
         mGradeViewModel = new ViewModelProvider(this).get(GradeViewModel.class);
-        averageGrade = (TextView)findViewById(R.id.average_grade);
+        averageGrade = (TextView) findViewById(R.id.average_grade);
         RecyclerView recyclerView = findViewById(R.id.recycler_for_grade);
         GradeAdapter gradeAdapter = new GradeAdapter(new GradeAdapter.GradeDiff());
         recyclerView.setAdapter(gradeAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0 || dy < 0 && buttonAddNewGrade.isShown()) {
-                    buttonAddNewGrade.hide();
-                }
-            }
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    buttonAddNewGrade.show();
-                }
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
-
+        initFloatingButton(recyclerView, buttonAddNewGrade);
         Bundle arguments = getIntent().getExtras();
         idStudent = arguments.getInt("idStudentOwner");
         mGradeViewModel.getGrade(idStudent).observe(this, grades -> {
             gradeAdapter.submitList(grades);
             addNewGrade(buttonAddNewGrade);
         });
-        mGradeViewModel.getGrade(idStudent).observe(this,grades -> {
+        mGradeViewModel.getGrade(idStudent).observe(this, grades -> {
             double average = 0.0;
             double temp = 0.0;
             double counter = 0.0;
             if (grades.isEmpty()) {
-            averageGrade.setText("Добавьте оценку");
-            } else{
+                averageGrade.setText("Добавьте оценку");
+            } else {
                 for (int i = 0; i < grades.size(); i++) {
                     temp += Integer.parseInt(grades.get(i).getGrade());
                     counter++;
                 }
                 average = temp / counter;
-                String formattedDouble = String.format("%.2f", average);
-                averageGrade.setText("Средний балл:" +formattedDouble);
+                String formattedDouble = String.format("%.1f", average);
+                averageGrade.setText("Средний балл:" + formattedDouble);
             }
         });
 
@@ -105,4 +90,24 @@ public class ProfileActivity extends AppCompatActivity {
             }
         });
     }
+
+    public void initFloatingButton(RecyclerView mRecyclerView, FloatingActionButton mButton) {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView mRecyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && mButton.isShown()) {
+                    mButton.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView mRecyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    mButton.show();
+                }
+                super.onScrollStateChanged(mRecyclerView, newState);
+            }
+        });
+    }
+
 }

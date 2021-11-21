@@ -38,21 +38,7 @@ public class StudentActivity extends AppCompatActivity implements StudentViewHol
         final StudentAdapter studentAdapter = new StudentAdapter(new StudentAdapter.StudentDiff(), this);
         recyclerView.setAdapter(studentAdapter);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        recyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
-            @Override
-            public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
-                if (dy > 0 || dy < 0 && buttonAddNewStudent.isShown()) {
-                    buttonAddNewStudent.hide();
-                }
-            }
-            @Override
-            public void onScrollStateChanged(RecyclerView recyclerView, int newState) {
-                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
-                    buttonAddNewStudent.show();
-                }
-                super.onScrollStateChanged(recyclerView, newState);
-            }
-        });
+        initFloatingButton(recyclerView, buttonAddNewStudent);
         Bundle arguments = getIntent().getExtras();
         idGroup = arguments.getInt("idGroupOwner");
         mStudentViewModel.getStudent(idGroup).observe(this, students -> {
@@ -78,7 +64,7 @@ public class StudentActivity extends AppCompatActivity implements StudentViewHol
 
     @Override
     public void onStudentClick(int position) {
-        int idOfStudentForRelation =  mStudentViewModel.idStudent(idGroup,position);
+        int idOfStudentForRelation = mStudentViewModel.idStudent(idGroup, position);
         Intent intent = new Intent(StudentActivity.this, ProfileActivity.class);
         intent.putExtra("idStudentOwner", idOfStudentForRelation);
         startActivity(intent);
@@ -91,6 +77,25 @@ public class StudentActivity extends AppCompatActivity implements StudentViewHol
             public void onClick(View view) {
                 Intent intent = new Intent(StudentActivity.this, AddNewStudentActivity.class);
                 startActivityForResult(intent, NEW_STUDENT_ACTIVITY_REQUEST_CODE);
+            }
+        });
+    }
+
+    public void initFloatingButton(RecyclerView mRecyclerView, FloatingActionButton mButton) {
+        mRecyclerView.addOnScrollListener(new RecyclerView.OnScrollListener() {
+            @Override
+            public void onScrolled(RecyclerView mRecyclerView, int dx, int dy) {
+                if (dy > 0 || dy < 0 && mButton.isShown()) {
+                    mButton.hide();
+                }
+            }
+
+            @Override
+            public void onScrollStateChanged(RecyclerView mRecyclerView, int newState) {
+                if (newState == RecyclerView.SCROLL_STATE_IDLE) {
+                    mButton.show();
+                }
+                super.onScrollStateChanged(mRecyclerView, newState);
             }
         });
     }

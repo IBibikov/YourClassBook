@@ -41,7 +41,7 @@ public class AuthorizationActivity extends AppCompatActivity {
             public void onClick(View view) {
                 if ((TextUtils.isEmpty(nameOfTeacher.getText()))
                         || (TextUtils.isEmpty(subjectOfTeacher.getText()))) {
-                    Toast.makeText(getApplicationContext(),"Заполните все поля", Toast.LENGTH_LONG).show();
+                    Toast.makeText(getApplicationContext(), "Заполните все поля", Toast.LENGTH_LONG).show();
                 } else {
                     String name = nameOfTeacher.getText().toString();
                     String subject = subjectOfTeacher.getText().toString();
