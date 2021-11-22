@@ -21,18 +21,18 @@ import io.reactivex.Flowable;
 @Dao
 public interface TeacherDao {
     @Insert
-    void insertTeacher(Teacher teacher);
+   public void insertTeacher(Teacher teacher);
 
     @Query("DELETE FROM teacher")
     public void deleteAllTeachers();
 
     @Query("SELECT teacherId FROM teacher")
-    List<Integer> getAllIdOfTeacher();
+    public List<Integer> getAllIdOfTeacher();
 
     @Query("SELECT * FROM teacher")
-    LiveData<List<Teacher>> getAllTeachers();
+    public LiveData<List<Teacher>> getAllTeachers();
 
     @Query("SELECT * FROM teacher")
-    List<Teacher> getAll();
+    public List<Teacher> getAll();
 
 }
