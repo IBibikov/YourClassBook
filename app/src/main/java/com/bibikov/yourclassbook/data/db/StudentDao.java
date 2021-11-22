@@ -21,4 +21,6 @@ public interface StudentDao {
 
     @Query("SELECT * FROM student WHERE groupOwnerID = :idOwner")
     List<Student> getStudentSync(int idOwner);
+
+
 }

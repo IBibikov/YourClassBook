@@ -4,6 +4,8 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+import java.util.Objects;
+
 @Entity(tableName = "teacher")
 public class Teacher {
     @PrimaryKey(autoGenerate = true)
@@ -19,5 +21,18 @@ public class Teacher {
 
     public int getTeacherId() {
         return teacherId;
+    }
+
+    @Override
+    public boolean equals(Object o) {
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
+        Teacher teacher = (Teacher) o;
+        return Objects.equals(fio_teacher, teacher.fio_teacher) && Objects.equals(subject, teacher.subject);
+    }
+
+    @Override
+    public int hashCode() {
+        return Objects.hash(fio_teacher, subject);
     }
 }

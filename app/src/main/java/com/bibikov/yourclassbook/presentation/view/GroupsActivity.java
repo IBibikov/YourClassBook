@@ -50,7 +50,6 @@ public class GroupsActivity extends AppCompatActivity implements GroupViewHolder
 
     public void onActivityResult(int requestCode, int resultCode, Intent data) {
         super.onActivityResult(requestCode, resultCode, data);
-
         if (requestCode == NEW_GROUP_ACTIVITY_REQUEST_CODE && resultCode == RESULT_OK) {
             List<Integer> idTeacher = mGroupViewModel.getIdOfTeacher();
             int idForRelation = idTeacher.get(0);

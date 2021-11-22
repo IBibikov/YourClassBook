@@ -31,4 +31,8 @@ public interface TeacherDao {
 
     @Query("SELECT * FROM teacher")
     LiveData<List<Teacher>> getAllTeachers();
+
+    @Query("SELECT * FROM teacher")
+    List<Teacher> getAll();
+
 }
