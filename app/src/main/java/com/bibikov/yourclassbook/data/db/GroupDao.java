@@ -13,13 +13,12 @@ import java.util.List;
 public interface GroupDao {
 
     @Insert
-    void insertGroup(Group group);
-
-    @Query("DELETE FROM 'group'")
-    public void deleteAllGroups();
+    public void insertGroup(Group group);
 
     @Query("SELECT * FROM `group`")
-    LiveData<List<Group>> getAllGroup();
+    public LiveData<List<Group>> getAllGroup();
 
+    @Query("SELECT * FROM `group`")
+    public List<Group> getGroups();
 
 }

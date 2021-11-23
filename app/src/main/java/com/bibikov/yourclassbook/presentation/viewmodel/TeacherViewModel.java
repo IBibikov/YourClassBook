@@ -21,8 +21,4 @@ public class TeacherViewModel extends AndroidViewModel {
         mSchoolRepository.insertTeacher(teacher);
     }
 
-    public void deleteAllTeachers(){
-        mSchoolRepository.deleteAllTeacher();
-    }
-
 }

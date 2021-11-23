@@ -39,18 +39,6 @@ public class SchoolRepository {
         });
     }
 
-    public void deleteAllTeacher() {
-        AppDataBase.databaseWriteExecutor.execute(() -> {
-            mTeacherDao.deleteAllTeachers();
-        });
-    }
-
-    public void deleteAllGroup() {
-        AppDataBase.databaseWriteExecutor.execute(() -> {
-            mGroupDao.deleteAllGroups();
-        });
-    }
-
     public void insertGroup(Group group) {
         AppDataBase.databaseWriteExecutor.execute(() -> {
             mGroupDao.insertGroup(group);
@@ -84,7 +72,7 @@ public class SchoolRepository {
             mGradeDao.insertGrade(grade);
         });
     }
-    public List<Student> getStudentSecn(int idGroup) {
+    public List<Student> getStudentSync(int idGroup) {
         return mStudentDao.getStudentSync(idGroup);
     }
 
@@ -92,7 +80,21 @@ public class SchoolRepository {
         return mTeacherDao.getAllTeachers();
     }
 
+
     public List<Grade> getGrade(int idStudent){
         return mGradeDao.getGrade(idStudent);
     }
+    public List<Group> getGroupTest(){
+       return mGroupDao.getGroups();
+    }
+    public List<Teacher> getTeacherTest(){
+        return mTeacherDao.getTeacher();
+    }
+    public List<Student> getStudentTest(){
+        return mStudentDao.getStudents();
+    }
+    public List<Grade> getGradeTest(){
+        return mGradeDao.getGrade();
+    }
+
 }

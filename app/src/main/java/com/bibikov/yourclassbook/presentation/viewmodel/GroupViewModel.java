@@ -33,10 +33,6 @@ public class GroupViewModel extends AndroidViewModel {
         return mSchoolRepository.getIdAllTeacher();
     }
 
-    public void deleteAllGroups() {
-        mSchoolRepository.deleteAllGroup();
-    }
-
     public LiveData<List<Group>> getAllGroups() {
         return mAllGroups;
     }

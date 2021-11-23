@@ -23,9 +23,6 @@ public interface TeacherDao {
     @Insert
    public void insertTeacher(Teacher teacher);
 
-    @Query("DELETE FROM teacher")
-    public void deleteAllTeachers();
-
     @Query("SELECT teacherId FROM teacher")
     public List<Integer> getAllIdOfTeacher();
 
@@ -33,6 +30,6 @@ public interface TeacherDao {
     public LiveData<List<Teacher>> getAllTeachers();
 
     @Query("SELECT * FROM teacher")
-    public List<Teacher> getAll();
+    public List<Teacher> getTeacher();
 
 }

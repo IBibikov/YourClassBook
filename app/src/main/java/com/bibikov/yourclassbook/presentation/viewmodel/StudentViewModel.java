@@ -6,7 +6,6 @@ import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
 import androidx.lifecycle.LiveData;
 
-import com.bibikov.yourclassbook.data.entity.Group;
 import com.bibikov.yourclassbook.data.entity.Student;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
@@ -43,7 +42,7 @@ public class StudentViewModel extends AndroidViewModel {
 
 
     public int idStudent(int idOfGroup,int position){
-        int d= mSchoolRepository.getStudentSecn(idOfGroup).get(position).getStudentId();
+        int d= mSchoolRepository.getStudentSync(idOfGroup).get(position).getStudentId();
         return d;
     }
 }
