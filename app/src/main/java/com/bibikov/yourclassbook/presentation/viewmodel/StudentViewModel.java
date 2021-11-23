@@ -21,28 +21,28 @@ public class StudentViewModel extends AndroidViewModel {
 
     public StudentViewModel(@NonNull Application application) {
         super(application);
-        mSchoolRepository=new SchoolRepository(application);
+        mSchoolRepository = new SchoolRepository(application);
     }
-    public void insertStudent(Student student){
+
+    public void insertStudent(Student student) {
         mSchoolRepository.insertStudent(student);
     }
 
 
-    public LiveData<List<Student>> getStudent(int id){
-        mAllStudentsByGroup=mSchoolRepository.getStudents(id);
+    public LiveData<List<Student>> getStudent(int id) {
+        mAllStudentsByGroup = mSchoolRepository.getStudents(id);
         return mAllStudentsByGroup;
     }
 
 
-
-    public int idOfStudent(int idOfGroup,int position ){
+    public int idOfStudent(int idOfGroup, int position) {
         mAllStydentById = mSchoolRepository.getStudents(idOfGroup);
         return Objects.requireNonNull(mAllStydentById.getValue()).get(position).getStudentId();
     }
 
 
-    public int idStudent(int idOfGroup,int position){
-        int d= mSchoolRepository.getStudentSync(idOfGroup).get(position).getStudentId();
+    public int idStudent(int idOfGroup, int position) {
+        int d = mSchoolRepository.getStudentSync(idOfGroup).get(position).getStudentId();
         return d;
     }
 }

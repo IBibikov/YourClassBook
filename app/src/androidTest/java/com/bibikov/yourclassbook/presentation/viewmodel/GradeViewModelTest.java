@@ -2,8 +2,12 @@ package com.bibikov.yourclassbook.presentation.viewmodel;
 
 import static org.junit.Assert.*;
 
+import android.app.Application;
+import android.app.Service;
 import android.content.Context;
 
+import androidx.lifecycle.ViewModelProvider;
+import androidx.lifecycle.ViewModelStoreOwner;
 import androidx.test.core.app.ApplicationProvider;
 
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
@@ -14,17 +18,16 @@ import org.junit.Test;
 
 public class GradeViewModelTest {
 
-    SchoolRepository schoolRepository;
+    GradeViewModel gradeViewModel;
 
     @Before
     public void init(){
-        Context context = ApplicationProvider.getApplicationContext();
-        schoolRepository=new SchoolRepository(context);
+        //TODO
     }
 
     @Test
     public void insertGrade() {
-
+        //TODO
     }
 
     @Test
@@ -32,8 +35,5 @@ public class GradeViewModelTest {
         //TODO
     }
 
-    @Test
-    public void getAverageGrade() {
-        //TODO
-    }
+
 }

@@ -30,20 +30,4 @@ public class GradeViewModel extends AndroidViewModel {
         return mAllGradesByStudent = mSchoolRepository.getAllGrade(idOwner);
     }
 
-    public double getAverageGrade(int idOwner) {
-        double average = 0;
-        int temp = 0;
-        int counter = 0;
-        List<Grade> listGrade = mSchoolRepository.getAllGrade(idOwner).getValue();
-        if (listGrade == null) {
-            return 0;
-        } else {
-            for (int i = 0; i < listGrade.size(); i++) {
-                temp += Integer.parseInt(listGrade.get(i).getGrade());
-                counter++;
-            }
-            average = temp / counter;
-            return average;
-        }
-    }
 }

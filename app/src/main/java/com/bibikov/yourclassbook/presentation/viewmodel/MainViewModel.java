@@ -12,12 +12,13 @@ import java.util.List;
 
 public class MainViewModel extends AndroidViewModel {
     public SchoolRepository mSchoolRepository;
+
     public MainViewModel(@NonNull Application application) {
         super(application);
-        mSchoolRepository=new SchoolRepository(application);
+        mSchoolRepository = new SchoolRepository(application);
     }
 
-    public boolean isTeacherExist(){
-       return  mSchoolRepository.getIdAllTeacher().isEmpty();
+    public boolean isTeacherExist() {
+        return mSchoolRepository.getIdAllTeacher().isEmpty();
     }
 }
