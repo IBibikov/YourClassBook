@@ -35,8 +35,8 @@
             android:layout_height="wrap_content"
             app:boxStrokeColor="@color/black"
             android:textColorHint="@color/black"
+            android:hint="@string/grade"
             android:maxLength="1"
-            android:hint="Оценка"
             app:strokeColor="@color/black"
             app:strokeWidth="10dp"
             >
@@ -51,6 +51,7 @@
                 android:textColor="@color/black"
                 android:singleLine="true"
                 style="@style/Widget.MaterialComponents.TextInputLayout.FilledBox.Dense"
+                android:digits="2345"
                 />
         </com.google.android.material.textfield.TextInputLayout>
         <androidx.appcompat.widget.LinearLayoutCompat

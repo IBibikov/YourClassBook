@@ -19,5 +19,6 @@
     <string name="hint_for_subject">Преподаваемый предмет</string>
     <string name="enter_fio_student">Введите информацию</string>
     <string name="fio_student">ФИО ученика</string>
+    <string name="grade">Оценка</string>
 
 </resources>

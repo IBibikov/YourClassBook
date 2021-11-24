@@ -4,6 +4,7 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.text.InputFilter;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
@@ -26,6 +27,9 @@ public class AddNewGradeActivity extends AppCompatActivity {
         setContentView(R.layout.activity_add_new_grade_acrivity);
         valueOfGrade = findViewById(R.id.value_of_grade);
         Button buttonSaveGrade = findViewById(R.id.button_for_save_new_grade);
+        InputFilter[] filterArray = new InputFilter[1];
+        filterArray[0] = new InputFilter.LengthFilter(1);
+        valueOfGrade.setFilters(filterArray);
         buttonSaveGrade.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
