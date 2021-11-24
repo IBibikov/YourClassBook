@@ -13,6 +13,7 @@ import com.bibikov.yourclassbook.R;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 import com.bibikov.yourclassbook.presentation.viewmodel.GroupViewModel;
 import com.bibikov.yourclassbook.presentation.viewmodel.MainViewModel;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 /**
  * Первый экран приложения, предлагающий действия "продолжить" при существующем учителе
@@ -32,22 +33,26 @@ public class MainActivity extends AppCompatActivity {
         buttonStart = findViewById(R.id.button_start);
         buttonContinue = findViewById(R.id.button_for_continue);
         mainViewModel = new ViewModelProvider(this).get(MainViewModel.class);
-        startForNewTeacher(buttonStart);
-        continueForOldTeacher(buttonContinue);
+        startForNewTeacher();
+        continueForOldTeacher();
     }
 
 
-    public void startForNewTeacher(View view) {
+    public void startForNewTeacher() {
         buttonStart.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(MainActivity.this, AuthorizationActivity.class);
-                startActivity(intent);
+                if (!(mainViewModel.isTeacherExist())) {
+                    Toast.makeText(getApplicationContext(), "Вы уже зарегистрированны", Toast.LENGTH_LONG).show();
+                } else {
+                    Intent intent = new Intent(MainActivity.this, AuthorizationActivity.class);
+                    startActivity(intent);
+                }
             }
         });
     }
 
-    public void continueForOldTeacher(View view) {
+    public void continueForOldTeacher() {
         buttonContinue.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
