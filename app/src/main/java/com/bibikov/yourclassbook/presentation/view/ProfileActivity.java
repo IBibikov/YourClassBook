@@ -21,7 +21,11 @@ import com.bibikov.yourclassbook.presentation.viewmodel.StudentViewModel;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.text.DecimalFormat;
-
+/**
+ * Экран приложения отображающий профиль ученика с его оценками и средним баллом
+ *
+ * @author Бибиков Игорь
+ */
 public class ProfileActivity extends AppCompatActivity {
 
     FloatingActionButton buttonAddNewGrade;

@@ -9,7 +9,11 @@ import com.bibikov.yourclassbook.data.entity.Teacher;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
 import java.util.List;
-
+/**
+ * ViewModel для управления первым экраном приложения
+ *
+ * @author Бибиков Игорь
+ */
 public class MainViewModel extends AndroidViewModel {
     public SchoolRepository mSchoolRepository;
 

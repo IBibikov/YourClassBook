@@ -18,17 +18,42 @@ import java.util.List;
 
 import io.reactivex.Flowable;
 
+/**
+ * Интерфейс для работы с таблицей "teacher"
+ *
+ * @author Бибиков Игорь
+ */
 @Dao
 public interface TeacherDao {
+    /**
+     * Вставка сущности "учитель" в таблицу
+     *
+     * @param teacher {@link Teacher}
+     */
     @Insert
-   public void insertTeacher(Teacher teacher);
+    public void insertTeacher(Teacher teacher);
 
+    /**
+     * Запрос на получение id всех учителе
+     *
+     * @return лист id всех учителей
+     */
     @Query("SELECT teacherId FROM teacher")
     public List<Integer> getAllIdOfTeacher();
 
+    /**
+     * Запрос на получение всех учителей
+     *
+     * @return livedata со всеми учителями
+     */
     @Query("SELECT * FROM teacher")
     public LiveData<List<Teacher>> getAllTeachers();
 
+    /**
+     * Запрос на получение всех учителей
+     *
+     * @return лист со всеми учителями
+     */
     @Query("SELECT * FROM teacher")
     public List<Teacher> getTeacher();
 

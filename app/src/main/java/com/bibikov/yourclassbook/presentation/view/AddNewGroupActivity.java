@@ -15,11 +15,16 @@ import android.view.View;
 import android.widget.Button;
 
 import java.util.List;
-
+/**
+ * Экран для добавления группы в базу данных
+ *
+ * @author Бибиков Игорь
+ */
 public class AddNewGroupActivity extends AppCompatActivity {
 
     private TextInputEditText nameOfgroup;
     public static final String EXTRA_REPLY = "nameOfGroup";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

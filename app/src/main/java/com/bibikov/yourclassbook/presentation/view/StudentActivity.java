@@ -22,6 +22,11 @@ import android.widget.Toast;
 
 import java.util.List;
 
+/**
+ * Экран приложения отображающий лист студентов в выбранной учебной группе
+ *
+ * @author Бибиков Игорь
+ */
 public class StudentActivity extends AppCompatActivity implements StudentViewHolder.OnStudentListener {
     FloatingActionButton buttonAddNewStudent;
     StudentViewModel mStudentViewModel;

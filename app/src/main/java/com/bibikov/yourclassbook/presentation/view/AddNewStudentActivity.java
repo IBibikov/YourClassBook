@@ -1,6 +1,7 @@
 package com.bibikov.yourclassbook.presentation.view;
 
 import androidx.appcompat.app.AppCompatActivity;
+
 import com.bibikov.yourclassbook.R;
 import com.google.android.material.textfield.TextInputEditText;
 
@@ -9,11 +10,16 @@ import android.os.Bundle;
 import android.text.TextUtils;
 import android.view.View;
 import android.widget.Button;
-
+/**
+ * Экран для добавления студента в базу данных
+ *
+ * @author Бибиков Игорь
+ */
 public class AddNewStudentActivity extends AppCompatActivity {
 
     private TextInputEditText nameOfStudent;
     public static final String EXTRA_REPLY = "nameOfStudent";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

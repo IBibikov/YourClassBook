@@ -24,7 +24,11 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * Экран для представления списка всех учебных групп
+ *
+ * @author Бибиков Игорь
+ */
 public class GroupsActivity extends AppCompatActivity implements GroupViewHolder.OnGroupListener {
 
     public static final int NEW_GROUP_ACTIVITY_REQUEST_CODE = 1;

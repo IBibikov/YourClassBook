@@ -10,11 +10,16 @@ import android.widget.Button;
 
 import com.bibikov.yourclassbook.R;
 import com.google.android.material.textfield.TextInputEditText;
-
+/**
+ * Экран для добавления оценки в базу данных
+ *
+ * @author Бибиков Игорь
+ */
 public class AddNewGradeActivity extends AppCompatActivity {
 
     private TextInputEditText valueOfGrade;
     public static final String EXTRA_REPL = "valueOfGrade";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

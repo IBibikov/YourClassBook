@@ -6,6 +6,11 @@ import androidx.room.Entity;
 import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
+/**
+ * Модель сущности "группа" для хранения в базе данных
+ *
+ * @author Бибиков Игорь
+ */
 @Entity(tableName = "group")
 public class Group {
 

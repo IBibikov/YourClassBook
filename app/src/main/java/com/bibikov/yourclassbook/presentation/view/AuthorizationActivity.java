@@ -15,7 +15,11 @@ import com.bibikov.yourclassbook.data.entity.Teacher;
 import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 import com.bibikov.yourclassbook.presentation.viewmodel.TeacherViewModel;
 import com.google.android.material.textfield.TextInputEditText;
-
+/**
+ * Экран для инициализации полей сущности "учитель" в базе данных
+ *
+ * @author Бибиков Игорь
+ */
 public class AuthorizationActivity extends AppCompatActivity {
 
 

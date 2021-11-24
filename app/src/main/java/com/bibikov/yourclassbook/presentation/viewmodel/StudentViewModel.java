@@ -11,10 +11,12 @@ import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
 import java.util.List;
 import java.util.Objects;
-
+/**
+ * ViewModel для управления экраном представления сущности "Студент"
+ *
+ * @author Бибиков Игорь
+ */
 public class StudentViewModel extends AndroidViewModel {
-
-
     private LiveData<List<Student>> mAllStudentsByGroup;
     private LiveData<List<Student>> mAllStydentById;
     public SchoolRepository mSchoolRepository;

@@ -5,7 +5,11 @@ import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.util.Objects;
-
+/**
+ * Модель сущности "учитель" для хранения в базе данных
+ *
+ * @author Бибиков Игорь
+ */
 @Entity(tableName = "teacher")
 public class Teacher {
     @PrimaryKey(autoGenerate = true)

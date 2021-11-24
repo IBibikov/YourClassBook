@@ -13,7 +13,11 @@ import com.bibikov.yourclassbook.domain.repository.SchoolRepository;
 
 import java.util.ArrayList;
 import java.util.List;
-
+/**
+ * ViewModel для управления экраном представления сущности "Группа"
+ *
+ * @author Бибиков Игорь
+ */
 public class GroupViewModel extends AndroidViewModel {
 
     public SchoolRepository mSchoolRepository;
@@ -37,7 +41,7 @@ public class GroupViewModel extends AndroidViewModel {
         return mAllGroups;
     }
 
-    public int idOfGroup(int position){
-       return mAllGroups.getValue().get(position).getGroupId();
+    public int idOfGroup(int position) {
+        return mAllGroups.getValue().get(position).getGroupId();
     }
 }

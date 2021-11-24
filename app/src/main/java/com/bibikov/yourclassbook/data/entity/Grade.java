@@ -7,6 +7,11 @@ import androidx.room.PrimaryKey;
 import java.util.Date;
 import java.util.Objects;
 
+/**
+ * Модель сущности "оценка" для хранения в базе данных
+ *
+ * @author Бибиков Игорь
+ */
 @Entity(tableName = "grade")
 public class Grade {
     @PrimaryKey(autoGenerate = true)
@@ -14,12 +19,10 @@ public class Grade {
     public String grade;
     public int studentOwner;
 
-
     public Grade(String grade, int studentOwner) {
         this.grade = grade;
         this.studentOwner = studentOwner;
     }
-
 
     public String getGrade() {
         return grade;
@@ -28,6 +31,7 @@ public class Grade {
     public int getStudentOwner() {
         return studentOwner;
     }
+
     @Override
     public boolean equals(Object o) {
         if (this == o) return true;
